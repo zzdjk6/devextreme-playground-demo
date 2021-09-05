@@ -41,16 +41,16 @@ The main idea is to build something tiny based on Material-UI and using `DataGri
 
 ## My current evaluation
 
-### The good
+### The pros
 
-- easy to learn
+- easy to learn (document and demos are very good)
 - consistent API styles (plugin based) 
 - flexible to customize in React way
 - states can be fully controlled outside the component (blend well with other parts)
 - use Mui as the render engine
 - not hard to find answers online (the staff will usually provide runnable demo on codesandbox)
 
-### The bad
+### The cons
 
 - plugins rely on order to work properly
 - needs to import things from different places (e.g., `@devexpress/dx-react-grid-material-ui` vs. `@devexpress/dx-react-grid` )
@@ -78,9 +78,15 @@ url: https://material-table.com/#/
 
 Open source, has some advanced features but less than DevExtreme-Reactive
 
+### mui-datatables
+
+url: https://www.material-ui-datatables.com/
+
+Open source, document is not good
+
 ### Other libraries
 
-Most other data table libraries are either a wrapper of something or not designed with material-ui in mind.
+Most other data table libraries are either a wrapper of something non-React or not built with material-ui.
 
 ## Possible replacement for Scheduler
 
