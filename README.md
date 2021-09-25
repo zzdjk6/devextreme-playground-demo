@@ -28,6 +28,9 @@ The main idea is to build something tiny based on Material-UI and using `DataGri
 - Controlled data state
 - Manage view type using external components
 - Customize toolbar
+- Customize calendar appearance
+- Editing data using custom dialog form
+- Drag and drop editing
 
 ### Chart
 

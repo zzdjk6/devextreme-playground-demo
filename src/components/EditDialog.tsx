@@ -4,17 +4,17 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { DataGridContext } from "./DataGridContext";
+import { MemoEditContext } from "../contexts/MemoEditContext";
 import { v4 as uuid } from "uuid";
 import { Form, Formik } from "formik";
-import { MemosContext } from "../../contexts/MemosContext";
-import { Memo } from "../../models/Memo";
+import { MemosContext } from "../contexts/MemosContext";
+import { Memo } from "../models/Memo";
 import omit from "lodash/omit";
-import { MemoStatus } from "../../models/MemoStatus";
-import EditFormContent from "./EditFormContent";
+import { MemoStatus } from "../models/MemoStatus";
+import EditFormContent from "../pages/data-grid/EditFormContent";
 
 const EditDialog: React.FC = () => {
-  const { editingId, setEditingId } = React.useContext(DataGridContext);
+  const { editingId, setEditingId } = React.useContext(MemoEditContext);
   const { getOne, updateOne } = React.useContext(MemosContext);
 
   const [titleId] = React.useState(uuid());
@@ -54,6 +54,7 @@ const EditDialog: React.FC = () => {
       onClose={handleClose}
       aria-labelledby={titleId}
       fullWidth
+      scroll="body"
     >
       <DialogTitle id={titleId}>Update</DialogTitle>
       <Formik
@@ -62,7 +63,7 @@ const EditDialog: React.FC = () => {
         onSubmit={handleSubmit}
       >
         <Form>
-          <DialogContent>
+          <DialogContent style={{ overflow: "hidden" }}>
             <EditFormContent />
           </DialogContent>
           <DialogActions>

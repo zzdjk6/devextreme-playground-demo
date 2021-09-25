@@ -4,16 +4,16 @@ import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { DataGridContext } from "./DataGridContext";
+import { MemoEditContext } from "../contexts/MemoEditContext";
 import { v4 as uuid } from "uuid";
 import { Form, Formik } from "formik";
-import { MemosContext } from "../../contexts/MemosContext";
-import { Memo } from "../../models/Memo";
-import { MemoStatus } from "../../models/MemoStatus";
-import EditFormContent from "./EditFormContent";
+import { MemosContext } from "../contexts/MemosContext";
+import { Memo } from "../models/Memo";
+import { MemoStatus } from "../models/MemoStatus";
+import EditFormContent from "../pages/data-grid/EditFormContent";
 
 const CreateDialog: React.FC = () => {
-  const { isCreating, setIsCreating } = React.useContext(DataGridContext);
+  const { isCreating, setIsCreating } = React.useContext(MemoEditContext);
   const { addOne } = React.useContext(MemosContext);
   const [titleId] = React.useState(uuid());
 
@@ -48,6 +48,7 @@ const CreateDialog: React.FC = () => {
       onClose={handleClose}
       aria-labelledby={titleId}
       fullWidth
+      scroll="body"
     >
       <DialogTitle id={titleId}>Create</DialogTitle>
       <Formik

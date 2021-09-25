@@ -2,10 +2,10 @@ import React from "react";
 import range from "lodash/range";
 import faker from "faker";
 import { MemoStatus } from "../models/MemoStatus";
-import { addHours } from "date-fns";
+import { addHours, subDays, addDays } from "date-fns";
 import { MemosContext } from "../contexts/MemosContext";
 
-export const useSeedData = (numOfItems: number = 20) => {
+export const useSeedData = (numOfItems: number = 50) => {
   const { addOne, deleteAll } = React.useContext(MemosContext);
 
   const seedData = React.useCallback(() => {
@@ -18,7 +18,9 @@ export const useSeedData = (numOfItems: number = 20) => {
         faker.hacker.noun()
       );
       const hasDate = faker.datatype.boolean();
-      const startAt = hasDate ? faker.date.soon(2, new Date()) : null;
+      const startAt = hasDate
+        ? faker.date.between(subDays(new Date(), 2), addDays(new Date(), 2))
+        : null;
       const endAt = startAt ? addHours(startAt, 1) : null;
 
       addOne({

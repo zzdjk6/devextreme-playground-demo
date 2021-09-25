@@ -30,9 +30,9 @@ import RowDetail from "./RowDetail";
 import FilterCell from "./FilterCell";
 import GridRoot from "./GridRoot";
 import { columns } from "./constants";
-import EditDialog from "./EditDialog";
-import { DataGridContext } from "./DataGridContext";
-import CreateDialog from "./CreateDialog";
+import EditDialog from "../../components/EditDialog";
+import { MemoEditContext } from "../../contexts/MemoEditContext";
+import CreateDialog from "../../components/CreateDialog";
 import MuiGrid from "@material-ui/core/Grid";
 import { Memo } from "../../models/Memo";
 import { useSeedData } from "../../hooks/useSeedData";
@@ -88,7 +88,7 @@ const DataGridPage: React.FC = () => {
   }, [seedData]);
 
   return (
-    <DataGridContext.Provider
+    <MemoEditContext.Provider
       value={{
         editingId,
         setEditingId,
@@ -169,7 +169,7 @@ const DataGridPage: React.FC = () => {
         <EditDialog />
         <CreateDialog />
       </StyledPaper>
-    </DataGridContext.Provider>
+    </MemoEditContext.Provider>
   );
 };
 

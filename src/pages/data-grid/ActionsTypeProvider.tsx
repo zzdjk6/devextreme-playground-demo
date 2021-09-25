@@ -1,6 +1,6 @@
 import React from "react";
 import { DataTypeProvider } from "@devexpress/dx-react-grid";
-import { DataGridContext } from "./DataGridContext";
+import { MemoEditContext } from "../../contexts/MemoEditContext";
 import IconButton from "@material-ui/core/IconButton";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
@@ -9,7 +9,7 @@ import { MemosContext } from "../../contexts/MemosContext";
 
 const ActionsFormatter: React.FC<{ value: any }> = ({ value }) => {
   const id = value;
-  const { setEditingId } = React.useContext(DataGridContext);
+  const { setEditingId } = React.useContext(MemoEditContext);
   const { deleteOne } = React.useContext(MemosContext);
 
   return (
